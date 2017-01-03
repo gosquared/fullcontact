@@ -182,6 +182,7 @@ FullContact.prototype.exec = function exec(fn) {
     }
   }, function requested(err, res, body) {
     if (err) return bailout(err);
+    if (!body) return bailout(new Error('nil body'));
 
     fn(err, body.responses);
   });
